@@ -9,4 +9,6 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-02-20",
+
+  plugins: ["~/plugins/fontawesome"], // Added FontAwesome plugin
 });
