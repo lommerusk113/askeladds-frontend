@@ -10,7 +10,7 @@
 
         <TextField
             v-model="email"
-            icon="user"
+            icon="envelope"
             placeholder="Enter your email"
             label="Email"
             type="text"
@@ -18,7 +18,7 @@
 
         <TextField
             v-model="password"
-            icon="user"
+            icon="lock"
             placeholder="Create a password"
             label="Password"
             type="password"

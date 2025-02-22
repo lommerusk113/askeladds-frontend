@@ -1,8 +1,8 @@
 <template>
     <div class="p">
         <label class="font-bold" v-if="label">{{ label }}</label>
-        <div class="p-3 flex border rounded w-auto items-center gap-5 text-xl" :class="modelValue ? 'text-black' : 'text-gray-600'">
-            <Icon v-if="icon" :icon="icon" />
+        <div class="p-3 flex border rounded w-auto items-center gap-3 text-xl" :class="modelValue ? 'text-black' : 'text-gray-600'">
+            <Icon v-if="icon" :icon="icon" :size="27" />
             <input
                 :value="modelValue"
                 @input="updateValue"
@@ -17,11 +17,10 @@
 <script setup lang="ts">
 import Icon from "./Icon";
 
-
 type Props = {
     icon?: string
     placeholder?: string
-    modelValue: string
+    modelValue?: string
     label?: string
     type: 'text' | 'password'
 }

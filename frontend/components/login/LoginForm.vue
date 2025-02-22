@@ -1,7 +1,7 @@
 <template>
     <div class="grid gap-5">
         <TextField v-model="username" icon="user" placeholder="Enter your username or email" label="Username or Email" type="text"/>
-        <TextField v-model="password" icon="user" placeholder="Enter your password" label="Password" type="password"/>
+        <TextField v-model="password" icon="lock" placeholder="Enter your password" label="Password" type="password"/>
 
         <div class="flex justify-between">
             <div class="flex gap-2">
