@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import * as PhosphorIcons from '@phosphor-icons/vue'
-import {useStringUtils} from "../../utilities/StringUtils";
+import {useStringUtils} from "../../utils/StringUtils";
 const { capitalizeFirstLetter } = useStringUtils() || {}
 
 type Props = {

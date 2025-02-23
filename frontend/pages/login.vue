@@ -17,6 +17,10 @@ import Button from "../components/utilities/Button.vue";
 import LoginForm from "../components/login/LoginForm.vue";
 import SignupForm from "../components/login/SignupForm.vue";
 
+definePageMeta({
+    middleware: 'auth'
+})
+
 const loginActive = ref<boolean>(true)
 
 

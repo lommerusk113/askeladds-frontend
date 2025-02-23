@@ -1,14 +1,6 @@
 <template>
     <div class="grid gap-5">
         <TextField
-            v-model="username"
-            icon="user"
-            placeholder="Choose a username"
-            label="Username"
-            type="text"
-        />
-
-        <TextField
             v-model="email"
             icon="envelope"
             placeholder="Enter your email"
@@ -38,18 +30,35 @@
         </div>
 
 
-        <Button button-class="text-lg text-white bg-blue-700 hover:bg-blue-900">Sign in</button>
+        <Button @click="signup" button-class="text-lg text-white bg-blue-700 hover:bg-blue-900">Sign in</button>
     </div>
 </template>
 
 <script setup lang="ts">
 import Button from "../utilities/Button.vue";
 import TextField from "../utilities/TextField.vue";
-
-
-const username = ref<string>()
 const email = ref<string>()
 const password = ref<string>()
+const { $supabase } = useNuxtApp()
+
+const signup = async() => {
+
+    if (!email.value || !password.value) {
+        alert("fyll inn alt...")
+        return
+    }
+
+    const { data, error } = await $supabase.auth.signUp({
+        email: email.value,
+        password: password.value,
+    })
+
+    if (data.user.aud === 'authenticated') {
+        return navigateTo('/home')
+    }
+}
+
+
 
 
 </script>
