@@ -2,8 +2,18 @@ export default defineNuxtConfig({
   css: ["@/assets/css/tailwind.css"],
 
   plugins: [
-    { src: '~/plugins/supabase.client.ts', mode: 'client' }
+    { src: '~/plugins/Supabase.ts', mode: 'client' },
+    { src: '~/plugins/fontawesome' },
+    { src: '~/services/ProfileService' } // Add your new profile service plugin
   ],
+
+  typescript: {
+    strict: true,
+    typeCheck: true,
+    tsConfig: {
+      include: ['types/**/*.d.ts']
+    }
+  },
 
   postcss: {
     plugins: {
@@ -23,6 +33,4 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-02-20",
-
-  plugins: ["~/plugins/fontawesome"], // Added FontAwesome plugin
 });

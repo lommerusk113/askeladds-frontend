@@ -8,15 +8,13 @@
 </template>
 <script setup lang="ts">
 import Header from "./components/header.vue";
+import { useNuxtApp } from "nuxt/app";
+import { computed, ref } from "@vue/reactivity";
 
 const { $supabase } = useNuxtApp()
 const loading = ref<boolean>(true)
 
-$supabase.auth.onAuthStateChange(() => {
+$supabase?.auth.onAuthStateChange(() => {
     loading.value = false
-})
-
-const loaded = computed(() => {
-    return !!$supabase
 })
 </script>

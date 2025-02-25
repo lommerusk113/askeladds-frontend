@@ -30,13 +30,14 @@
         </div>
 
 
-        <Button @click="signup" button-class="text-lg text-white bg-blue-700 hover:bg-blue-900">Sign in</button>
+        <Button @click="signup" button-class="text-lg text-white bg-blue-700 hover:bg-blue-900">Sign up</button>
     </div>
 </template>
 
 <script setup lang="ts">
 import Button from "../utilities/Button.vue";
 import TextField from "../utilities/TextField.vue";
+import {navigateTo} from "nuxt/app";
 const email = ref<string>()
 const password = ref<string>()
 const { $supabase } = useNuxtApp()
@@ -53,7 +54,7 @@ const signup = async() => {
         password: password.value,
     })
 
-    if (data.user.aud === 'authenticated') {
+    if (data.user?.aud === 'authenticated') {
         return navigateTo('/home')
     }
 }

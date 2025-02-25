@@ -1,5 +1,5 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
-import {useRuntimeConfig} from "nuxt/app";
+import {defineNuxtPlugin, useRuntimeConfig} from "nuxt/app";
 
 export default defineNuxtPlugin(async (nuxtApp) => {
 

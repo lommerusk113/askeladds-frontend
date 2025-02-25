@@ -9,15 +9,19 @@
 <script setup lang="ts">
 import * as PhosphorIcons from '@phosphor-icons/vue'
 import {useStringUtils} from "../../utils/StringUtils";
+import {computed} from "@vue/reactivity";
 const { capitalizeFirstLetter } = useStringUtils() || {}
 
 type Props = {
     icon: string
-    size?: number
+    size?: string
 }
 
 const props = defineProps<Props>()
-const IconComponent = computed(() => PhosphorIcons["Ph" + capitalizeFirstLetter(props.icon)])
+const iconName = computed(() => "Ph" + capitalizeFirstLetter(props.icon))
+const IconComponent = computed(() =>
+    (PhosphorIcons as Record<string, any>)[iconName.value] || null
+)
 
 </script>
 

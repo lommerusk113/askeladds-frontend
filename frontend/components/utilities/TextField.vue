@@ -1,14 +1,14 @@
 <template>
     <div @click="focusInputField" class="cursor-pointer">
         <label class="font-bold" v-if="label">{{ label }}</label>
-        <div class="p-3 flex border rounded w-auto items-center gap-3 text-xl" :class="modelValue ? 'text-black' : 'text-gray-600'">
-            <Icon v-if="icon" :icon="icon" :size="27" />
+        <div class="p-3 flex border rounded w-auto items-center gap-3 text-xl" :class="[modelValue ? 'text-black' : 'text-gray-600', containerClass]">
+            <Icon v-if="icon" :icon="icon" size="27" />
             <input
                 ref="inputFieldRef"
                 :value="modelValue"
                 @input="updateValue"
                 :placeholder="placeholder"
-                class="w-full border-0 outline-none"
+                class="w-full border-0 outline-none cursor-pointer"
                 :type="type"
             />
         </div>
@@ -16,7 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import Icon from "./Icon";
+import Icon from "./Icon.vue";
+import {ref} from "@vue/reactivity";
 
 type Props = {
     icon?: string
@@ -24,6 +25,7 @@ type Props = {
     modelValue?: string
     label?: string
     type: 'text' | 'password'
+    containerClass?: string
 }
 
 defineProps<Props>()

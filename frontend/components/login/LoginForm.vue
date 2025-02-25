@@ -36,6 +36,7 @@
 <script setup lang="ts">
 import Button from "../utilities/Button.vue";
 import TextField from "../utilities/TextField.vue";
+import {navigateTo} from "nuxt/app";
 
 
 const email = ref<string>()
@@ -56,7 +57,7 @@ const login = async() => {
         password: password.value,
     })
 
-    if (data.user.aud === 'authenticated') {
+    if (data.user?.aud === 'authenticated') {
         return navigateTo('/home')
     }
 }
